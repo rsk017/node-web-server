@@ -36,8 +36,7 @@ app.use((request,response,next)=>{
 app.use(express.static(__dirname + '/public'));
 
 hbs.registerHelper('getCurrentYear',()=>{
-    //return new Date().getFullYear();
-    return 'You Suck';
+    return new Date().getFullYear();
 });
 
 
@@ -51,8 +50,14 @@ app.get('/',(request,response)=>{
 
 app.get('/about',(request,response)=>{
    response.render('about.hbs',{
-       pageTitle : 'Revanth'
+       pageTitle : 'About'
    });
+});
+
+app.get('/projects',(request,response)=>{
+    response.render('projects.hbs',{
+       pageTitle : 'Projects'
+    });
 });
 
 app.get('/bad',(request,response)=>{
